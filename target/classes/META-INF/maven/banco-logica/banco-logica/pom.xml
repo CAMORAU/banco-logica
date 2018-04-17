@@ -8,7 +8,7 @@
 
 	<dependencies>
 		
-		<!-- Spring -->
+		<!-- Spring herramienta-->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
