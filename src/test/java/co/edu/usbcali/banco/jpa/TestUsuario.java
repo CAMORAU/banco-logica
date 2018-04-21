@@ -33,7 +33,7 @@ class TestUsuario {
 	
 	static EntityManager entityManager = null;
 	
-	private String usuUsuario = "user1";
+	private String usuUsuario = "user132323";
 	
 	@BeforeAll
 	public static void iniciar() {
