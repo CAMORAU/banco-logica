@@ -45,11 +45,8 @@ class TestUsuario {
 	@Test
 	@DisplayName("CreaUsuario")
 	void atest() {
-		log.info("---------1");
 		assertNotNull(entityManager, "El entityManager es nulo");
-		log.info("---------2");
 		Usuario usuario = entityManager.find(Usuario.class, usuUsuario);
-		log.info("---------3");
 		assertNull(usuario, "El usuario ya existe");
 		usuario = new Usuario();
 		
@@ -71,58 +68,56 @@ class TestUsuario {
 	}
 	
 	@Test
-	@DisplayName("ConsultarClientePorId")
+	@DisplayName("ConsultarUsuarioPorUsuario")
 	void btest() {
 		assertNotNull(entityManager, "El entityManager es nulo");
-		Cliente cliente = entityManager.find(Cliente.class, usuUsuario);
-		assertNotNull(cliente, "El cliente no existe");
+		Usuario usuario = entityManager.find(Usuario.class, usuUsuario);
+		assertNotNull(usuario, "El usuario no existe");
 		
-		log.info("Id:"+cliente.getClieId());
-		log.info("Nombre:"+cliente.getNombre());
+		log.info("Usuario:"+usuario.getUsuUsuario());
+		log.info("Nombre:"+usuario.getNombre());
 	}
 	
 	@Test
-	@DisplayName("ModificarCliente")
+	@DisplayName("ModificarUsuario")
 	void ctest() {
 		assertNotNull(entityManager, "El entityManager es nulo");
-		Cliente cliente = entityManager.find(Cliente.class, usuUsuario);
-		assertNotNull(cliente, "El cliente no existe");
+		Usuario usuario = entityManager.find(Usuario.class, usuUsuario);
+		assertNotNull(usuario, "El usuario no existe");
 		
-		cliente.setActivo('N');
-		cliente.setDireccion("calle se fue aca");
-		cliente.setEmail("notengo@gmail.com");
-		cliente.setNombre("Bart Simpson");
-		cliente.setTelefono("1234567");
+		usuario.setActivo('N');
+		usuario.setClave("12345");
+		usuario.setNombre("Bart Simpson1");
 		
 		entityManager.getTransaction().begin();
-		entityManager.merge(cliente);
+		entityManager.merge(usuario);
 		entityManager.getTransaction().commit();
 	}
 	
 	@Test
-	@DisplayName("BorrarCliente")
+	@DisplayName("BorrarUsuario")
 	void dtest() {
 		assertNotNull(entityManager, "El entityManager es nulo");
-		Cliente cliente = entityManager.find(Cliente.class, usuUsuario);
-		assertNotNull(cliente, "El cliente no existe");
+		Usuario Usuario = entityManager.find(Usuario.class, usuUsuario);
+		assertNotNull(Usuario, "El usuario no existe");
 		
 		entityManager.getTransaction().begin();
-		entityManager.remove(cliente);
+		entityManager.remove(Usuario);
 		entityManager.getTransaction().commit();
 	}
 
 	@Test
-	@DisplayName("ConsultarCliente")
+	@DisplayName("ConsultarUsuarios")
 	void etest() {
 		assertNotNull(entityManager, "El entityManager es nulo");
 		
-		String jpql = "SELECT cli FROM Cliente cli";
+		String jpql = "SELECT usu FROM Usuario usu";
 		
-		List<Cliente> losClientes = entityManager.createQuery(jpql).getResultList();
+		List<Usuario> losUsuarios = entityManager.createQuery(jpql).getResultList();
 		
-		losClientes.forEach(cliente->{
-			log.info("ID:"+ cliente.getClieId());
-			log.info("NOMBRE:"+ cliente.getNombre());
+		losUsuarios.forEach(usuario->{
+			log.info("Usuario:"+ usuario.getUsuUsuario());
+			log.info("NOMBRE:"+ usuario.getNombre());
 		});
 		
 		/*for (Cliente cliente : losClientes) {

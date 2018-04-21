@@ -31,7 +31,7 @@ class TestCliente {
 	
 	static EntityManager entityManager = null;
 	
-	private BigDecimal clieId = new BigDecimal(142021);
+	private BigDecimal clieId = new BigDecimal(142020);
 	
 	@BeforeAll
 	public static void iniciar() {

@@ -10,7 +10,7 @@
 		<class>co.edu.usbcali.banco.modelo.Transaccion</class>
 		<class>co.edu.usbcali.banco.modelo.Usuario</class>
 		<properties>
-			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:9368/banco"/>
+			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/banco"/>
 			<property name="javax.persistence.jdbc.user" value="postgres"/>
 			<property name="javax.persistence.jdbc.password" value="postgres"/>
 			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
